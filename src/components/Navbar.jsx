@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
 function Navbar() {
@@ -5,7 +6,9 @@ function Navbar() {
     <div className="flex justify-center items-center shadow-sm py-4 w-full sticky top-0 bg-white z-50">
       <div className="flex justify-between items-center w-full max-w-screen-xl p-4">
         <div className="w-40">
-          <img src={logo} alt="Mega Coffee" />
+          <Link to={"/"}>
+            <img src={logo} alt="Mega Coffee" />
+          </Link>
         </div>
 
         <div className="text-lg font-bold">
