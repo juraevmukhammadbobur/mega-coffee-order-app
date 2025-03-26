@@ -3,7 +3,14 @@
 
 import OrederButton from "./OrederButton";
 
-function Cart({ cart, incrementOrder, decrementOrder, total, modalTrue }) {
+function Cart({
+  cart,
+  deleteOnCart,
+  incrementOrder,
+  decrementOrder,
+  total,
+  modalTrue,
+}) {
   //   console.log(cart);
   //   const [cart, setCart] = useState([]);
 
@@ -49,7 +56,11 @@ function Cart({ cart, incrementOrder, decrementOrder, total, modalTrue }) {
                         +
                       </button>
                       <button
-                        onClick={() => decrementOrder(item.id)}
+                        onClick={
+                          item.quantity < 1
+                            ? deleteOnCart(item.id)
+                            : () => decrementOrder(item.id)
+                        }
                         className="my-4 cursor-pointer bg-neutral-300 flex items-center px-4 py-1 rounded-4xl "
                       >
                         -
