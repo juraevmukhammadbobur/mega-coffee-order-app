@@ -1,7 +1,9 @@
 // import axios from "axios";
 // import { useEffect, useState } from "react";
 
-function Cart({ cart, incrementOrder, decrementOrder, total }) {
+import OrederButton from "./OrederButton";
+
+function Cart({ cart, incrementOrder, decrementOrder, total, modalTrue }) {
   //   console.log(cart);
   //   const [cart, setCart] = useState([]);
 
@@ -63,6 +65,7 @@ function Cart({ cart, incrementOrder, decrementOrder, total }) {
             );
           })}
         </div>
+        <OrederButton cart={cart} modalTrue={modalTrue} />
       </>
     );
   };

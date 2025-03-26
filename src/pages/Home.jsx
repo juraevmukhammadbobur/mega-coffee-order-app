@@ -2,22 +2,16 @@ import Menu from "../components/Menu";
 import Cart from "../components/Cart";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
-
-// const showOrders = () => {
-//   console.log("showorders");
-// };
-
-// const showNoting = () => {
-//   return (
-//     <>
-//       <h1>add to cart</h1>
-//     </>
-//   );
-// };
+import PaymentPopap from "../components/PaymentPopap";
 
 function Home() {
   const [cart, setCart] = useState([]);
   // const [total, setTotal] = useState(0);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+
+  const modalTrue = () => {
+    setShowPaymentModal(true);
+  };
 
   const addToCart = (product) => {
     setCart((prevCart) => {
@@ -42,10 +36,14 @@ function Home() {
   };
 
   const decrementOrder = (productId) => {
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
-      )
+    setCart(
+      (prevCart) =>
+        prevCart.map((item) =>
+          item.id === productId && item.quantity > 1
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+      // .filter((item) => item.quantity > 0)
     );
   };
 
@@ -58,6 +56,7 @@ function Home() {
   return (
     <>
       <main className="flex flex-col items-center">
+        {showPaymentModal && <PaymentPopap />}
         <Navbar />
         <Menu addToCart={addToCart} />
       </main>
@@ -65,8 +64,8 @@ function Home() {
         cart={cart}
         incrementOrder={incrementOrder}
         decrementOrder={decrementOrder}
+        modalTrue={modalTrue}
       />
-      {/* {cart.length > 0 ? showOrders() : showNoting()} */}
     </>
   );
 }
