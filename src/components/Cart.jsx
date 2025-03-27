@@ -9,7 +9,7 @@ function Cart({
   incrementOrder,
   decrementOrder,
   total,
-  modalTrue,
+  toggleModal,
 }) {
   //   console.log(cart);
   //   const [cart, setCart] = useState([]);
@@ -32,7 +32,7 @@ function Cart({
     );
   };
 
-  const showOrders = () => {
+  const showOrders = (cart) => {
     return (
       <>
         <div className="w-1/2 grid grid-cols-3 overflow-scroll items-center h-full max-w-screen-xl p-4">
@@ -61,7 +61,7 @@ function Cart({
                             ? deleteOnCart(item.id)
                             : () => decrementOrder(item.id)
                         }
-                        className="my-4 cursor-pointer bg-neutral-300 flex items-center px-4 py-1 rounded-4xl "
+                        className="my-4 cursor-pointer bg-neutral-300 flex items-center px-4 py-1 rounded-4xl"
                       >
                         -
                       </button>
@@ -76,7 +76,11 @@ function Cart({
             );
           })}
         </div>
-        <OrederButton cart={cart} modalTrue={modalTrue} />
+        <OrederButton
+          cart={cart}
+          toggleModal={toggleModal}
+          deleteOnCart={deleteOnCart}
+        />
       </>
     );
   };

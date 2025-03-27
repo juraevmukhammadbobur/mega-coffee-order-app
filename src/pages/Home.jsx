@@ -1,7 +1,7 @@
 import Menu from "../components/Menu";
 import Cart from "../components/Cart";
 import Navbar from "../components/Navbar";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PaymentPopap from "../components/PaymentPopap";
 
 function Home() {
@@ -9,8 +9,8 @@ function Home() {
   // const [total, setTotal] = useState(0);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
 
-  const modalTrue = () => {
-    setShowPaymentModal(true);
+  const toggleModal = () => {
+    setShowPaymentModal((prevState) => !prevState);
   };
 
   const addToCart = (product) => {
@@ -18,7 +18,7 @@ function Home() {
       const haveToCart = prevCart.findIndex((item) => item.id === product.id);
       if (haveToCart >= 0) {
         const updateCart = [...prevCart];
-        updateCart[haveToCart].quantity += 1;
+        updateCart[haveToCart].quantity = +1;
         return updateCart;
       } else {
         return [...prevCart, { ...product, quantity: 1 }];
@@ -28,7 +28,6 @@ function Home() {
   };
 
   const deleteOnCart = (productId) => {
-    console.log("delete");
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
 
@@ -61,7 +60,13 @@ function Home() {
   return (
     <>
       <main className="flex flex-col items-center">
-        {showPaymentModal && <PaymentPopap cart={cart} />}
+        {showPaymentModal && (
+          <PaymentPopap
+            cart={cart}
+            deleteOnCart={deleteOnCart}
+            toggleModal={toggleModal}
+          />
+        )}
         <Navbar />
         <Menu addToCart={addToCart} />
       </main>
@@ -70,7 +75,7 @@ function Home() {
         deleteOnCart={deleteOnCart}
         incrementOrder={incrementOrder}
         decrementOrder={decrementOrder}
-        modalTrue={modalTrue}
+        toggleModal={toggleModal}
       />
     </>
   );
