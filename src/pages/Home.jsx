@@ -6,7 +6,7 @@ import PaymentPopap from "../components/PaymentPopap";
 
 function Home() {
   const [cart, setCart] = useState([]);
-  // const [total, setTotal] = useState(0);
+  // const [total, setTotal] = useState();
   const [showPaymentModal, setShowPaymentModal] = useState(false);
 
   // const removeCart =()=> {

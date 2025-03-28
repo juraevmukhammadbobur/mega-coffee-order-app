@@ -8,7 +8,6 @@ function Cart({
   deleteOnCart,
   incrementOrder,
   decrementOrder,
-  total,
   toggleModal,
 }) {
   //   console.log(cart);
@@ -66,8 +65,8 @@ function Cart({
                         -
                       </button>
                     </div>
-                    <p className="text-3xl font-light">
-                      {item.price * item.quantity}
+                    <p className="text-3xl flex font-light">
+                      {item.price * item.quantity}{" "}
                       {/* {total == 0 ? item.price : total + item.price} */}
                     </p>
                   </div>

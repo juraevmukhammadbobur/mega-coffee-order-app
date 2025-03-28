@@ -29,7 +29,7 @@ function Card({ addToCart }) {
             </div>
             <div className="flex justify-between items-end mb-3 mt-4">
               <p className="text-lg font-bold">{product.title}</p>
-              <p className="text-3xl font-light">{product.price}</p>
+              <p className="text-3xl font-light">{product.price}₩</p>
             </div>
             <p className="text-sm font-thin text-gray-400 h-10 overflow-hidden">
               {product.description}
