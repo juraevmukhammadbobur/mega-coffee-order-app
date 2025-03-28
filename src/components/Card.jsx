@@ -2,15 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Card({ addToCart }) {
-  const port = import.meta.env.VITE_PORT;
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${port}/menu`)
+      .get("http://localhost:3000/menu")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
-  }, [port]);
+  }, []);
 
   return (
     <div className="mb-40 justify-center items-center p-10 grid grid-cols-4 gap-5 max-xl:grid-cols-3 max-sm:grid-cols-1">
