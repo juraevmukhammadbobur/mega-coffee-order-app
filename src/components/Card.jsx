@@ -10,7 +10,7 @@ function Card({ addToCart }) {
       .get(`${host}/menu`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [host]);
 
   return (
     <div className="mb-40 justify-center items-center p-10 grid grid-cols-4 gap-5 max-xl:grid-cols-3 max-sm:grid-cols-1">
