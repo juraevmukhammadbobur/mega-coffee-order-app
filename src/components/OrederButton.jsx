@@ -14,8 +14,12 @@ function OrederButton({ toggleModal, deleteOnCart, cart }) {
         쿠펀 등록
       </button>
       <button
-        onClick={() => deleteOnCart(cart)}
-        className="bg-emerald-500 h-full rounded-2xl text-white cursor-pointer"
+        onClick={() => {
+          cart.map((item) => {
+            deleteOnCart(item.id);
+          });
+        }}
+        className="bg-black h-full rounded-2xl text-white cursor-pointer"
       >
         취소
       </button>

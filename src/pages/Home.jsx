@@ -9,6 +9,10 @@ function Home() {
   // const [total, setTotal] = useState(0);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
 
+  // const removeCart =()=> {
+  //   setCart(prevCart=> prevCart[])
+  // }
+
   const toggleModal = () => {
     setShowPaymentModal((prevState) => !prevState);
   };
