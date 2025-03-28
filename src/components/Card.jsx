@@ -2,22 +2,23 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Card({ addToCart }) {
+  const port = import.meta.env.VITE_PORT;
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/menu")
+      .get(`${port}/menu`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [port]);
 
   return (
-    <div className="mb-40 justify-center items-center grid grid-cols-4 gap-4">
+    <div className="mb-40 justify-center items-center p-10 grid grid-cols-4 gap-5 max-xl:grid-cols-3 max-sm:grid-cols-1">
       {products.map((product, i) => {
         return (
           <div
             key={i}
-            className="w-70 h-85 bg-white mb-10 g-4 cursor-pointer"
+            className="w-full h-full bg-white mb-10 g-4 cursor-pointer"
             onClick={() => addToCart(product)}
           >
             <div className="h-64">
@@ -28,10 +29,14 @@ function Card({ addToCart }) {
               />
             </div>
             <div className="flex justify-between items-end mb-3 mt-4">
-              <p className="text-lg font-bold">{product.title}</p>
-              <p className="text-3xl font-light">{product.price}₩</p>
+              <p className="text-lg font-bold max-xl:text-sm">
+                {product.title}
+              </p>
+              <p className="text-3xl font-light max-lg:text-lg">
+                {product.price}₩
+              </p>
             </div>
-            <p className="text-sm font-thin text-gray-400 h-10 overflow-hidden">
+            <p className="text-sm font-thin text-gray-400 h-10 overflow-hidden ">
               {product.description}
             </p>
           </div>

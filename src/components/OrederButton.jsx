@@ -2,14 +2,14 @@ import PaymentPopap from "./PaymentPopap";
 
 function OrederButton({ toggleModal, deleteOnCart, cart }) {
   return (
-    <div className="w-1/2 grid grid-cols-3 text-2xl items-center h-full max-w-screen-xl p-4 gap-2">
+    <div className="w-1/2 grid grid-cols-3 text-2xl items-center max-w-screen-xl p-4 gap-2 max-xl:grid-cols-3 max-sm:grid-cols-1 overflow-scroll">
       <button
         onClick={() => toggleModal()}
-        className="bg-amber-300  h-full rounded-2xl cursor-pointer "
+        className="bg-amber-300 rounded-2xl cursor-pointer py-10"
       >
         결제하기
       </button>
-      <button className="text-gray-300 h-full cursor-pointer border-2 border-dashed py-5 px-20 rounded-2xl">
+      <button className="text-gray-300 cursor-pointer border-2 py-10 border-dashed rounded-2xl">
         쿠펀 등록
       </button>
       <button
@@ -18,7 +18,7 @@ function OrederButton({ toggleModal, deleteOnCart, cart }) {
             deleteOnCart(item.id);
           });
         }}
-        className="bg-black h-full rounded-2xl text-white cursor-pointer"
+        className="bg-black rounded-2xl py-10 text-white cursor-pointer"
       >
         취소
       </button>

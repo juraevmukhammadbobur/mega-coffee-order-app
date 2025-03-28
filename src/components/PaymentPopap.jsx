@@ -12,17 +12,17 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
   return (
     <div>
       <div className="bg-gray-400/20 fixed w-full top-0 left-0 bottom-0 flex justify-center items-center z-999 backdrop-blur-sm">
-        <div className="block w-[60%] h-[60%] rounded-2xl bg-white p-6">
-          <div className="h-72 overflow-y-auto mb-4 ">
+        <div className="block w-[60%] h-[60%] rounded-2xl bg-white p-6 max-xl:h-[48%] max-sm:h-[55%]">
+          <div className="h-65 overflow-scroll max-sm:h-1/2">
             {cart.map((item, i) => {
               return (
                 <div
                   key={i}
-                  className="grid grid-cols-4 text-center mb-6 gap-4"
+                  className="grid grid-cols-4 text-center mb-6 gap-4 max-sm:w-sm"
                 >
                   <div className="flex">
                     <p className="mr-6">{i + 1}</p>
-                    <p className="">{item.title}</p>
+                    <p className="max-sm:text-xs">{item.title}</p>
                   </div>
                   <p className="">{item.quantity}</p>
                   <p className="text-right">{item.price * item.quantity}</p>
@@ -36,18 +36,19 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
               );
             })}
           </div>
-          <div className="w-full grid grid-cols-3 gap-4 pb-3 h-20">
-            <div className="">
+          <div className="w-full grid grid-cols-3 gap-4 my-8 max-xl:grid-cols-1 lg:mt-30 xl:my-8">
+            <div className="flex justify-center items-end gap-4">
               총합:
-              <p className="text-4xl font-bold">
-                {total} <span className="text-2xl font-light">₩</span>{" "}
+              <p className="text-4xl font-bold max-sm:text-xl">
+                {total}{" "}
+                <span className="text-2xl font-light max-sm:text-lg">₩</span>
               </p>
             </div>
-            <button className="cursor-pointer bg-amber-300 rounded-xl">
+            <button className="cursor-pointer bg-amber-300 rounded-xl lg:py-4">
               결제하기
             </button>
             <button
-              className="cursor-pointer bg-black text-white rounded-xl"
+              className="cursor-pointer bg-black text-white rounded-xl lg:py-4"
               onClick={toggleModal}
             >
               취소

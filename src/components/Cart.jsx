@@ -20,7 +20,7 @@ function Cart({
   const showOrders = (cart) => {
     return (
       <>
-        <div className="w-1/2 grid grid-cols-3 overflow-scroll items-center h-full max-w-screen-xl p-4">
+        <div className="w-1/2 grid grid-cols-3 overflow-scroll items-center h-full max-w-screen-xl p-4 max-xl:grid-cols-2 max-lg:grid-cols-1">
           {cart.map((item, i) => {
             return (
               <div key={i} className="flex mb-5">
@@ -31,9 +31,9 @@ function Cart({
                     className=" h-30 object-cover hover:scale-108 transition-transform"
                   />
 
-                  <div className="block mx-3">
+                  <div className="block mx-2">
                     <p className="text-sm font-bold">{item.title}</p>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between max-lg:gap-2">
                       <button
                         onClick={() => incrementOrder(item.id)}
                         className="my-4 cursor-pointer bg-amber-300 flex items-center px-4 py-1 rounded-4xl "
