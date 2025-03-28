@@ -2,11 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Card({ addToCart }) {
+  const host = import.meta.env.VITE_HOST;
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/menu")
+      .get(`${host}/menu`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, []);
