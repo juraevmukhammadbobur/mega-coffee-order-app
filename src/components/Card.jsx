@@ -37,17 +37,6 @@ function Card({ addToCart }) {
           </div>
         );
       })}
-
-      {/* <div className="cart">
-        <h2>Cart</h2>
-        {cart.map((item, i) => (
-          <div key={i}>
-            <p>
-              {item.title} - {item.price}
-            </p>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 }

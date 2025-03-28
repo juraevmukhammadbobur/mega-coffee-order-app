@@ -3,7 +3,6 @@ import PaymentPopap from "./PaymentPopap";
 function OrederButton({ toggleModal, deleteOnCart, cart }) {
   return (
     <div className="w-1/2 grid grid-cols-3 text-2xl items-center h-full max-w-screen-xl p-4 gap-2">
-      {/* {showPaymentModal && <PaymentPopap />} */}
       <button
         onClick={() => toggleModal()}
         className="bg-amber-300  h-full rounded-2xl cursor-pointer "

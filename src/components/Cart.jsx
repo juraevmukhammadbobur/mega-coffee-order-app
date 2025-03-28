@@ -1,6 +1,3 @@
-// import axios from "axios";
-// import { useEffect, useState } from "react";
-
 import OrederButton from "./OrederButton";
 
 function Cart({
@@ -10,17 +7,6 @@ function Cart({
   decrementOrder,
   toggleModal,
 }) {
-  //   console.log(cart);
-  //   const [cart, setCart] = useState([]);
-
-  //   useEffect(() => {
-  //     axios
-  //       .get("http://localhost:3000/cart")
-  //       .then((res) => setCart(res.data))
-  //       .catch((err) => console.log(err));
-  //   }, []);
-
-  // console.log(NewTotal);
   const showNothing = () => {
     return (
       <div className="flex w-full items-center justify-center ">
@@ -67,7 +53,6 @@ function Cart({
                     </div>
                     <p className="text-3xl flex font-light">
                       {item.price * item.quantity}{" "}
-                      {/* {total == 0 ? item.price : total + item.price} */}
                     </p>
                   </div>
                 </div>

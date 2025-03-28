@@ -6,12 +6,7 @@ import PaymentPopap from "../components/PaymentPopap";
 
 function Home() {
   const [cart, setCart] = useState([]);
-  // const [total, setTotal] = useState();
   const [showPaymentModal, setShowPaymentModal] = useState(false);
-
-  // const removeCart =()=> {
-  //   setCart(prevCart=> prevCart[])
-  // }
 
   const toggleModal = () => {
     setShowPaymentModal((prevState) => !prevState);
@@ -28,7 +23,6 @@ function Home() {
         return [...prevCart, { ...product, quantity: 1 }];
       }
     });
-    // console.log(product);
   };
 
   const deleteOnCart = (productId) => {
@@ -54,12 +48,6 @@ function Home() {
         .filter((item) => item.quantity > 0)
     );
   };
-
-  // const addItem = (item) => {
-  //   const NewTotal = total + item.price;
-  //   setTotal(NewTotal);
-  //   console.log(cart);
-  // };
 
   return (
     <>
