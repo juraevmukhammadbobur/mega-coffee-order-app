@@ -1,12 +1,23 @@
-# React + Vite
+# Mega Coffee Order App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Mega Coffee Order App** — is a web application for ordering Mega Coffee. It provides a convenient interface for selecting drinks and ordering online.
 
-Currently, two official plugins are available:
+## Project description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application is build using React and Vite, providing fast and responsive work.
 
-## Expanding the ESLint configuration
+The main functions include:
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- View the drinks menu.
+- Add products to cart.
+- Order processing and confirmation.
+
+## Project structure
+
+- **data**: Contains data files, such as the drinks menu.
+- **public**: Static files and resources.
+- **src**: Application source code including React components and styles.
+
+## Link for App
+
+[Megga Coffee order app](https://mega-coffee-order-app.vercel.app/)
