@@ -12,9 +12,11 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
     }
   }, [cart, toggleModal]);
 
+  let randomId = String(Math.floor(Math.random() * 900 + 100));
+
   const handleClick = () => {
     axios
-      .post(`${host}/orders`, cart)
+      .post(`${host}/orders`, { items: cart, id: randomId })
       .then(() => {
         navigate("/");
       })
@@ -24,7 +26,7 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
   // console.log(cart);
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
+  console.log(cart);
   return (
     <div>
       <div className="bg-gray-400/20 fixed w-full top-0 left-0 bottom-0 flex justify-center items-center z-999 backdrop-blur-sm">

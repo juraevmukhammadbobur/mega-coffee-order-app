@@ -27,10 +27,10 @@ function Card({ addToCart }) {
 
   return (
     <div className="mb-40 justify-center items-center p-10 grid grid-cols-4 gap-5 max-xl:grid-cols-3 max-sm:grid-cols-1">
-      {products.map((product, i) => {
+      {products.map((product) => {
         return (
           <div
-            key={i}
+            key={product.id}
             className="w-full h-full bg-white mb-10 g-4 cursor-pointer"
             onClick={() => addToCart(product)}
           >

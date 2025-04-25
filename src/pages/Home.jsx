@@ -17,13 +17,14 @@ function Home() {
       const haveToCart = prevCart.findIndex((item) => item.id === product.id);
       if (haveToCart >= 0) {
         const updateCart = [...prevCart];
-        updateCart[haveToCart].quantity = +1;
+        // updateCart[haveToCart].quantity += 1;
         return updateCart;
       } else {
         return [...prevCart, { ...product, quantity: 1 }];
       }
     });
   };
+  console.log(cart);
 
   const deleteOnCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));

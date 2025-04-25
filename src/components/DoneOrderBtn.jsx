@@ -1,19 +1,14 @@
 import axios from "axios";
 
-const DoneOrderBtn = ({ orders }) => {
+const DoneOrderBtn = ({ orderId }) => {
   const host = import.meta.env.VITE_HOST;
 
   const handleDoneOrder = () => {
-    // Проверьте, что order.id существует и корректен
-    if (!orders?.id) {
-      console.error("Order ID is missing or invalid.");
-      return;
-    }
-
+    console.log(orderId);
     axios
-      .delete(`${host}/orders/${orders.id}`) // Используем order.id
-      .then((response) => {
-        console.log("Order deleted:", response.data);
+      .delete(`${host}/orders/${orderId}`)
+      .then((res) => {
+        console.log("Order deleted:", res.data);
       })
       .catch((error) => {
         console.error("Error deleting order:", error);
