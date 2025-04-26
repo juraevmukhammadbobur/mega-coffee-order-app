@@ -24,7 +24,6 @@ function Home() {
       }
     });
   };
-  console.log(cart);
 
   const deleteOnCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));

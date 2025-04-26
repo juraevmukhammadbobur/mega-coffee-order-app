@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import DoneOrderBtn from "../components/DoneOrderBtn";
 import NotificationAudio from "../images/order.mp3";
 import Navbar from "../components/Navbar";
+import Loading from "../components/Loading";
 
 const Orders = () => {
   const host = import.meta.env.VITE_HOST;
@@ -20,7 +21,6 @@ const Orders = () => {
       })
       .catch((err) => console.log(err));
   }, [host]);
-  console.log(orders);
 
   const playNotificationSound = () => {
     if (audioRef.current) {
@@ -33,28 +33,38 @@ const Orders = () => {
   return (
     <div>
       {/* <audio ref={audioRef} src={NotificationAudio} preload="auto"></audio> */}
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div>
-          <Navbar />
-          <h1 className="text-center text-2xl font-bold my-3">Orders</h1>
+      <div>
+        <Navbar />
+        <h1 className="text-center text-2xl font-bold my-3">Orders</h1>
+        {loading ? (
+          <Loading />
+        ) : (
           <div className="grid grid-cols-3">
             {orders.map((order) => (
               <div
                 key={order.id}
-                className="border-dashed border-2 border-amber-300 rounded-2xl h-96 m-2"
+                className="border-dashed border-2 border-amber-300 rounded-2xl m-2"
               >
-                <div className="block text-center items-end gap-4">
-                  <p>주문 번호:</p>
-                  <p className="text-3xl font-bold">{order.id}</p>
+                <div className="flex justify-between p-3 items-center">
+                  <div className="flex flex-col">
+                    <p className="">주문 번호:</p>
+                    <p className="text-3xl font-bold">{order.id}</p>
+                  </div>
+                  <div className="flex">
+                    <DoneOrderBtn orderId={order.id} orders={orders} />
+                  </div>
                 </div>
                 {order.items.map((item) => (
-                  <div key={item.id} className="grid grid-cols-2">
+                  <div
+                    key={item.id}
+                    className="grid grid-cols-2 items-center justify-center p-3"
+                  >
                     <div className="ed">
-                      <h1>{item.title}</h1>
-                      <p>Цена: {item.price}</p>
-                      <p>Количество: {item.quantity}</p>
+                      <h1 className="text-xl font-bold">{item.title}</h1>
+                      <p className="font-semibold text-lg">
+                        가격: {item.price}
+                      </p>
+                      <p className="text-lg font-bold">수량: {item.quantity}</p>
                     </div>
                     <div className="flex justify-end">
                       <img
@@ -65,12 +75,11 @@ const Orders = () => {
                     </div>
                   </div>
                 ))}
-                <DoneOrderBtn orderId={order.id} orders={orders} />
               </div>
             ))}
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

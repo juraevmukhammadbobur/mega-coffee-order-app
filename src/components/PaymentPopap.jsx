@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
   const host = import.meta.env.VITE_HOST;
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     if (cart.length == 0) {
@@ -18,7 +18,7 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
     axios
       .post(`${host}/orders`, { items: cart, id: randomId })
       .then(() => {
-        navigate("/");
+        // navigate("/");
       })
       .catch((error) => console.log(error));
   };
@@ -26,7 +26,7 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
   // console.log(cart);
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  console.log(cart);
+
   return (
     <div>
       <div className="bg-gray-400/20 fixed w-full top-0 left-0 bottom-0 flex justify-center items-center z-999 backdrop-blur-sm">

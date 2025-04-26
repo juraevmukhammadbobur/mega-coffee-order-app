@@ -4,20 +4,19 @@ const DoneOrderBtn = ({ orderId }) => {
   const host = import.meta.env.VITE_HOST;
 
   const handleDoneOrder = () => {
-    console.log(orderId);
-    axios
-      .delete(`${host}/orders/${orderId}`)
-      .then((res) => {
-        console.log("Order deleted:", res.data);
-      })
-      .catch((error) => {
-        console.error("Error deleting order:", error);
-      });
+    axios.delete(`${host}/orders/${orderId}`).catch((error) => {
+      console.error("Error deleting order:", error);
+    });
   };
 
   return (
-    <div>
-      <button onClick={handleDoneOrder}>delete</button>
+    <div className="m-4  ">
+      <button
+        className="p-4 bg-amber-300 rounded-md px-8 cursor-pointer"
+        onClick={handleDoneOrder}
+      >
+        delete
+      </button>
     </div>
   );
 };
