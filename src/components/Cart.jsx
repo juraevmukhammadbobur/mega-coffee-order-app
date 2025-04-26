@@ -21,9 +21,9 @@ function Cart({
     return (
       <>
         <div className="w-1/2 grid grid-cols-3 overflow-scroll items-center h-full max-w-screen-xl p-4 max-xl:grid-cols-2 max-lg:grid-cols-1">
-          {cart.map((item, i) => {
+          {cart.map((item) => {
             return (
-              <div key={i} className="flex mb-5">
+              <div key={item.id} className="flex mb-5">
                 <div className="w-62 grid grid-cols-2 cursor-pointer">
                   <img
                     src={item.image}
@@ -43,7 +43,7 @@ function Cart({
                       <button
                         onClick={
                           item.quantity < 1
-                            ? deleteOnCart(item.id)
+                            ? () => deleteOnCart(item.id)
                             : () => decrementOrder(item.id)
                         }
                         className="my-4 cursor-pointer bg-neutral-300 flex items-center px-4 py-1 rounded-4xl"

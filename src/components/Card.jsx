@@ -1,23 +1,10 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-
-function Card({ addToCart }) {
-  const host = import.meta.env.VITE_HOST;
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${host}/menu`)
-      .then((res) => setProducts(res.data))
-      .catch((err) => console.log(err));
-  }, [host]);
-
+function Card({ addToCart, products }) {
   return (
     <div className="mb-40 justify-center items-center p-10 grid grid-cols-4 gap-5 max-xl:grid-cols-3 max-sm:grid-cols-1">
-      {products.map((product, i) => {
+      {products.map((product) => {
         return (
           <div
-            key={i}
+            key={product.id}
             className="w-full h-full bg-white mb-10 g-4 cursor-pointer"
             onClick={() => addToCart(product)}
           >
