@@ -18,7 +18,12 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
     axios
       .post(`${host}/orders`, { items: cart, id: randomId })
       .then(() => {
+        toggleModal();
+        cart.map((item) => {
+          deleteOnCart(item.id);
+        });
         navigate("/");
+        console.log("edfe");
       })
       .catch((error) => console.log(error));
   };
