@@ -1,6 +1,13 @@
-import PaymentPopap from "./PaymentPopap";
+import PaymentPopap from './PaymentPopap.js';
+import type { CartItem } from '../pages/Home';
 
-function OrederButton({ toggleModal, deleteOnCart, cart }) {
+interface OrederButtonProps {
+  cart: CartItem[];
+  toggleModal: () => void;
+  deleteOnCart: (productId: string) => void;
+}
+
+function OrederButton({ cart, toggleModal, deleteOnCart }: OrederButtonProps) {
   return (
     <div className="w-1/2 grid grid-cols-3 text-2xl items-center max-w-screen-xl p-4 gap-2 max-xl:grid-cols-3 max-sm:grid-cols-1 overflow-scroll">
       <button
@@ -14,7 +21,7 @@ function OrederButton({ toggleModal, deleteOnCart, cart }) {
       </button>
       <button
         onClick={() => {
-          cart.map((item) => {
+          cart.forEach((item) => {
             deleteOnCart(item.id);
           });
         }}

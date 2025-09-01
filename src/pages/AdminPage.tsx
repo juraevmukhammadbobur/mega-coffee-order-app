@@ -1,17 +1,28 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar.js';
+
+interface AdminInfo {
+  username: string;
+  password: string;
+}
+
+interface AdminResponse {
+  id: string;
+  username: string;
+  password: string;
+}
 
 const AdminPage = () => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [adminInfo, setAdminInfo] = useState({
-    username: "",
-    password: "",
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [adminInfo, setAdminInfo] = useState<AdminInfo>({
+    username: '',
+    password: '',
   });
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setAdminInfo((prev) => ({
       ...prev,
@@ -19,37 +30,38 @@ const AdminPage = () => {
     }));
   };
 
-  const hanldeSubmit = async (e) => {
+  const hanldeSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
 
     try {
       const response = await fetch(
-        "https://json-server-data-udg3.onrender.com/admin"
+        'https://json-server-data-udg3.onrender.com/admin',
       );
-      const admins = await response.json();
+      const admins: AdminResponse[] = await response.json();
       const admin = admins.find(
         (admin) =>
           admin.username === adminInfo.username &&
-          admin.password === adminInfo.password
+          admin.password === adminInfo.password,
       );
 
       if (admin) {
         localStorage.setItem(
-          "adminToken",
+          'adminToken',
           JSON.stringify({
             id: admin.id,
             username: admin.username,
             isLoggedIn: true,
-          })
+          }),
         );
 
-        navigate("/admin/orders");
+        navigate('/admin/orders');
       } else {
-        setError("Invalid username or password");
+        setError('Invalid username or password');
       }
     } catch (err) {
-      setError("Connection error. Please try again.");
+      setError('Connection error. Please try again.');
       console.error(err);
     } finally {
       setLoading(false);
@@ -57,7 +69,7 @@ const AdminPage = () => {
   };
 
   const menuBtn = () => {
-    navigate("/");
+    navigate('/');
   };
   return (
     <div className="flex justify-center h-screen bg-gray-100">

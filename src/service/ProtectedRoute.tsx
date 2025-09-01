@@ -1,8 +1,13 @@
 // src/components/ProtectedRoute.js
+import React from "react";
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ children }) => {
-  const isAdminAuthenticated = () => {
+type ProtectedRouteProps = {
+  children: React.ReactNode;
+};
+
+const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+  const isAdminAuthenticated = (): boolean => {
     const adminToken = localStorage.getItem("adminToken");
     if (!adminToken) return false;
 

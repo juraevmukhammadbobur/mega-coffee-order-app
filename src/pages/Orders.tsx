@@ -1,19 +1,25 @@
-import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
-import DoneOrderBtn from "../components/DoneOrderBtn";
+import axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
+import DoneOrderBtn from '../components/DoneOrderBtn.js';
 // import NotificationAudio from "../images/order.mp3";
-import Navbar from "../components/Navbar";
-import Loading from "../components/Loading";
+import Navbar from '../components/Navbar.js';
+import Loading from '../components/Loading.js';
+import type { CartItem } from './Home.js';
+
+export interface Order {
+  id: string;
+  items: CartItem[];
+}
 
 const Orders = () => {
   const host = import.meta.env.VITE_HOST;
-  const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const audioRef = useRef(null);
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     axios
-      .get(`${host}/orders`)
+      .get<Order[]>(`${host}/orders`)
       .then((res) => {
         setOrders(res.data);
         playNotificationSound();
@@ -26,7 +32,7 @@ const Orders = () => {
     if (audioRef.current) {
       audioRef.current
         .play()
-        .catch((err) => console.log("Ошибка воспроизведения звука:", err));
+        .catch((err) => console.log('Ошибка воспроизведения звука:', err));
     }
   };
 
@@ -51,7 +57,7 @@ const Orders = () => {
                     <p className="text-3xl font-bold">{order.id}</p>
                   </div>
                   <div className="flex">
-                    <DoneOrderBtn orderId={order.id} orders={orders} />
+                    <DoneOrderBtn orderId={order.id} />
                   </div>
                 </div>
                 {order.items.map((item) => (
@@ -70,7 +76,7 @@ const Orders = () => {
                       <img
                         src={item.image}
                         alt={item.title}
-                        style={{ width: "100px", height: "100px" }}
+                        style={{ width: '100px', height: '100px' }}
                       />
                     </div>
                   </div>

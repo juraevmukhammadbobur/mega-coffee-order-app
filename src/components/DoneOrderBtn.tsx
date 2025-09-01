@@ -1,11 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
-const DoneOrderBtn = ({ orderId }) => {
+interface DoneOrderBtnProps {
+  orderId: string;
+}
+
+const DoneOrderBtn = ({ orderId }: DoneOrderBtnProps) => {
   const host = import.meta.env.VITE_HOST;
 
   const handleDoneOrder = () => {
     axios.delete(`${host}/orders/${orderId}`).catch((error) => {
-      console.error("Error deleting order:", error);
+      console.error('Error deleting order:', error);
     });
   };
 

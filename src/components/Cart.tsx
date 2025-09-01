@@ -1,4 +1,14 @@
-import OrederButton from "./OrederButton";
+import React from 'react';
+import OrederButton from './OrederButton.js';
+import type { CartItem } from '../pages/Home.js';
+
+interface CartProps {
+  cart: CartItem[];
+  deleteOnCart: (productId: string) => void;
+  incrementOrder: (productId: string) => void;
+  decrementOrder: (productId: string) => void;
+  toggleModal: () => void;
+}
 
 function Cart({
   cart,
@@ -6,7 +16,7 @@ function Cart({
   incrementOrder,
   decrementOrder,
   toggleModal,
-}) {
+}: CartProps) {
   const showNothing = () => {
     return (
       <div className="flex w-full items-center justify-center ">
@@ -17,7 +27,7 @@ function Cart({
     );
   };
 
-  const showOrders = (cart) => {
+  const showOrders = (CartItems: CartItem[]) => {
     return (
       <>
         <div className="w-1/2 grid grid-cols-3 overflow-scroll items-center h-full max-w-screen-xl p-4 max-xl:grid-cols-2 max-lg:grid-cols-1">
@@ -52,7 +62,7 @@ function Cart({
                       </button>
                     </div>
                     <p className="text-3xl flex font-light">
-                      {item.price * item.quantity}{" "}
+                      {item.price * item.quantity}{' '}
                     </p>
                   </div>
                 </div>

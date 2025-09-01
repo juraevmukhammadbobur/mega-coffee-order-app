@@ -1,16 +1,20 @@
-import { useEffect, useState } from "react";
-import Card from "./Card";
-import axios from "axios";
-import Loading from "./Loading";
+import { useEffect, useState } from 'react';
+import Card from './Card.js';
+import axios from 'axios';
+import Loading from './Loading.js';
+import type { Product } from '../pages/Home';
 
-function Menu({ addToCart }) {
-  const [loading, setLoading] = useState(true);
+type MenuProps = {
+  addToCart: (product: Product) => void;
+};
+function Menu({ addToCart }: MenuProps) {
+  const [loading, setLoading] = useState<boolean>(true);
   const host = import.meta.env.VITE_HOST;
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     axios
-      .get(`${host}/menu`)
+      .get<Product[]>(`${host}/menu`)
       .then((res) => {
         setProducts(res.data);
         setLoading(false);

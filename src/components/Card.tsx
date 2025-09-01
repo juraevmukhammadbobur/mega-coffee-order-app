@@ -1,4 +1,12 @@
-function Card({ addToCart, products }) {
+import type { Product } from '../pages/Home';
+
+interface CardProps {
+  products: Product[];
+  addToCart: (product: Product) => void;
+  className?: string;
+}
+
+function Card({ products = [], addToCart }: CardProps) {
   return (
     <div className="mb-40 justify-center items-center p-10 grid grid-cols-4 gap-5 max-xl:grid-cols-3 max-sm:grid-cols-1">
       {products.map((product) => {

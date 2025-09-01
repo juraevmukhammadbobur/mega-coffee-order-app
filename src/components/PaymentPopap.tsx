@@ -1,8 +1,14 @@
-import axios from "axios";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import type { CartItem } from '../pages/Home';
 
-function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
+interface PaymentPopapProps {
+  cart: CartItem[];
+  toggleModal: () => void;
+  deleteOnCart: (productId: string) => void;
+}
+function PaymentPopap({ cart, toggleModal, deleteOnCart }: PaymentPopapProps) {
   const host = import.meta.env.VITE_HOST;
   const navigate = useNavigate();
 
@@ -19,11 +25,11 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
       .post(`${host}/orders`, { items: cart, id: randomId })
       .then(() => {
         toggleModal();
-        cart.map((item) => {
+        cart.forEach((item) => {
           deleteOnCart(item.id);
         });
-        navigate("/");
-        console.log("edfe");
+        navigate('/');
+        console.log('edfe');
       })
       .catch((error) => console.log(error));
   };
@@ -40,7 +46,7 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
             {cart.map((item, i) => {
               return (
                 <div
-                  key={i}
+                  key={item.id}
                   className="grid grid-cols-4 text-center mb-6 gap-4 max-sm:w-sm"
                 >
                   <div className="flex">
@@ -63,7 +69,7 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }) {
             <div className="flex justify-center items-end gap-4">
               총합:
               <p className="text-4xl font-bold max-sm:text-xl">
-                {total}{" "}
+                {total}{' '}
                 <span className="text-2xl font-light max-sm:text-lg">₩</span>
               </p>
             </div>

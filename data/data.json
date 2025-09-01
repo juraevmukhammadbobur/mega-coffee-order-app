@@ -292,6 +292,35 @@
           "quantity": 1
         }
       ]
+    },
+    {
+      "id": "749",
+      "items": [
+        {
+          "id": "1",
+          "title": "헛개리카노",
+          "price": 3900,
+          "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+          "category": {
+            "hot": true,
+            "cold": false
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000737_1742396857693_ngpZI3EbLM.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "title": "(ICE)헛개리카노",
+          "price": 4300,
+          "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+          "category": {
+            "hot": false,
+            "cold": true
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000925_1742396965069_ekSqAIVc1L.jpg",
+          "quantity": 7
+        }
+      ]
     }
   ]
 }
