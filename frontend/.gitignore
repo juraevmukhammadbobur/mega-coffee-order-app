@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+.prettierrc
+.prettierignore
+
 
 # Editor directories and files
 
