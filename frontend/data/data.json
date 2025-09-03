@@ -1,0 +1,326 @@
+{
+  "admin": [
+    {
+      "username": "admin",
+      "password": "123456"
+    }
+  ],
+  "menu": [
+    {
+      "id": "1",
+      "title": "헛개리카노",
+      "price": 3900,
+      "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+      "category": {
+        "hot": true,
+        "cold": false
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000737_1742396857693_ngpZI3EbLM.jpg"
+    },
+    {
+      "id": "2",
+      "title": "(ICE)헛개리카노",
+      "price": 4300,
+      "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+      "category": {
+        "hot": false,
+        "cold": true
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000925_1742396965069_ekSqAIVc1L.jpg"
+    },
+    {
+      "id": "3",
+      "title": "제로 부스트 에이드",
+      "price": 3500,
+      "description": "지친 현대인들에게 필요한 한 잔의 에너지! 타우린 1,000mg이 들어가 활력이 충전되는 에너지드링크맛 제로 칼로리 에이드",
+      "category": {
+        "hot": false,
+        "cold": true
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000925_1742396965069_ekSqAIVc1L.jpg"
+    },
+    {
+      "id": "4",
+      "title": "블루베리요거트스무디",
+      "price": 4000,
+      "description": "새콤달콤한 블루베리와 산뜻한 요거트가 만나 조화로운 스무디",
+      "category": {
+        "hot": true,
+        "cold": false
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320003134_1742398294871_z9t_oXfbA6.jpg"
+    },
+    {
+      "id": "5",
+      "title": "왕메가카페라떼",
+      "price": 3500,
+      "description": "진한 에스프레소와 부드러운 우유가 어우러져 고소한 풍미를 완성한 메가MGC커피만의 왕메가사이즈 라떼",
+      "category": {
+        "hot": false,
+        "cold": true
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320004326_1742399006488_yI4cvwXy6N.jpg"
+    },
+    {
+      "id": "6",
+      "title": "왕메가사과유자",
+      "price": 3500,
+      "description": "애플티의 향긋함과 유자청의 상큼달콤함을 느낄 수 있는 메가MGC커피만의 왕메가사이즈 과일티",
+      "category": {
+        "hot": true,
+        "cold": false
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320004730_1742399250273_UPT0oK5fSb.jpg"
+    },
+    {
+      "id": "7",
+      "title": "(HOT)디카페인 헛개리카노",
+      "price": 3800,
+      "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 디카페인 블렌딩 커피",
+      "category": {
+        "hot": true,
+        "cold": false
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320002019_1742397619030_g5iEBTRsp7.jpg"
+    },
+    {
+      "id": "8",
+      "title": "딸기라떼",
+      "price": 4500,
+      "description": "딸기과육이 풍부히 느껴지는 스테디 셀러 산뜻하고 달콤한 딸기가 가득해 부드러운 우유와 어우러져 더욱 기분 좋게 즐기는 아이스 라떼",
+      "category": {
+        "hot": false,
+        "cold": true
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250116001724_1736954244791_8qDsY0gj14.jpg"
+    },
+    {
+      "id": "9",
+      "title": "(HOT)상큼 리치티",
+      "price": 4500,
+      "description": "리치, 라임, 망고스틴 베이스에 레드 커런트, 로즈마리를 더한 상큼한 과일티",
+      "category": {
+        "hot": true,
+        "cold": false
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20241106234009_1730904009276_fu30eMash6.jpg"
+    },
+    {
+      "id": "10",
+      "title": "(ICE)상큼 리치티",
+      "price": 3500,
+      "description": "리치, 라임, 망고스틴 베이스에 레드 커런트, 로즈마리를 더한 상큼한 과일티",
+      "category": {
+        "hot": false,
+        "cold": true
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20241106234210_1730904130583_8wBT7nkLrL.jpg"
+    },
+    {
+      "id": "11",
+      "title": "할메가미숫커피",
+      "price": 3800,
+      "description": "곡물의 향이 고소한 미숫가루와 달달한 믹스커피의 황금비율 조합",
+      "category": {
+        "hot": false,
+        "cold": true
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20240904234012_1725460812247_PgldrBOdUW.jpg"
+    },
+    {
+      "id": "12",
+      "title": "왕메가초코",
+      "price": 3800,
+      "description": "부드러운 우유에 진한 초코소스가 어우러져 달콤하게 입맛을 깨우는 왕 메가 사이즈 초코음료",
+      "category": {
+        "hot": false,
+        "cold": true
+      },
+      "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20240610114853_1717987733636_Uq2ZKYINXZ.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": "552",
+      "items": [
+        {
+          "id": "3",
+          "title": "제로 부스트 에이드",
+          "price": 3500,
+          "description": "지친 현대인들에게 필요한 한 잔의 에너지! 타우린 1,000mg이 들어가 활력이 충전되는 에너지드링크맛 제로 칼로리 에이드",
+          "category": {
+            "hot": false,
+            "cold": true
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000925_1742396965069_ekSqAIVc1L.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "690",
+      "items": [
+        {
+          "id": "3",
+          "title": "제로 부스트 에이드",
+          "price": 3500,
+          "description": "지친 현대인들에게 필요한 한 잔의 에너지! 타우린 1,000mg이 들어가 활력이 충전되는 에너지드링크맛 제로 칼로리 에이드",
+          "category": {
+            "hot": false,
+            "cold": true
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000925_1742396965069_ekSqAIVc1L.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "841",
+      "items": [
+        {
+          "id": "6",
+          "title": "왕메가사과유자",
+          "price": 3500,
+          "description": "애플티의 향긋함과 유자청의 상큼달콤함을 느낄 수 있는 메가MGC커피만의 왕메가사이즈 과일티",
+          "category": {
+            "hot": true,
+            "cold": false
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320004730_1742399250273_UPT0oK5fSb.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "765",
+      "items": [
+        {
+          "id": "4",
+          "title": "블루베리요거트스무디",
+          "price": 4000,
+          "description": "새콤달콤한 블루베리와 산뜻한 요거트가 만나 조화로운 스무디",
+          "category": {
+            "hot": true,
+            "cold": false
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320003134_1742398294871_z9t_oXfbA6.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "693",
+      "items": [
+        {
+          "id": "1",
+          "title": "헛개리카노",
+          "price": 3900,
+          "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+          "category": {
+            "hot": true,
+            "cold": false
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000737_1742396857693_ngpZI3EbLM.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "334",
+      "items": [
+        {
+          "id": "1",
+          "title": "헛개리카노",
+          "price": 3900,
+          "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+          "category": {
+            "hot": true,
+            "cold": false
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000737_1742396857693_ngpZI3EbLM.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "799",
+      "items": [
+        {
+          "id": "1",
+          "title": "헛개리카노",
+          "price": 3900,
+          "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+          "category": {
+            "hot": true,
+            "cold": false
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000737_1742396857693_ngpZI3EbLM.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "573",
+      "items": [
+        {
+          "id": "2",
+          "title": "(ICE)헛개리카노",
+          "price": 4300,
+          "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+          "category": {
+            "hot": false,
+            "cold": true
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000925_1742396965069_ekSqAIVc1L.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "800",
+      "items": [
+        {
+          "id": "2",
+          "title": "(ICE)헛개리카노",
+          "price": 4300,
+          "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+          "category": {
+            "hot": false,
+            "cold": true
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000925_1742396965069_ekSqAIVc1L.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "749",
+      "items": [
+        {
+          "id": "1",
+          "title": "헛개리카노",
+          "price": 3900,
+          "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+          "category": {
+            "hot": true,
+            "cold": false
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000737_1742396857693_ngpZI3EbLM.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "title": "(ICE)헛개리카노",
+          "price": 4300,
+          "description": "국내산 헛개수와 메가MGC커피만의 아메리카노를 더해 고소한 맛이 조화로운 블렌딩 커피",
+          "category": {
+            "hot": false,
+            "cold": true
+          },
+          "image": "https://img.79plus.co.kr/megahp/manager/upload/menu/20250320000925_1742396965069_ekSqAIVc1L.jpg",
+          "quantity": 7
+        }
+      ]
+    }
+  ]
+}
