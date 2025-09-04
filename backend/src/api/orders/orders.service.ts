@@ -34,3 +34,18 @@ export const createNewOrder = async (items: CartItem[]) => {
   });
   return newOrder;
 };
+
+export const getAllOrders = async () => {
+  const orders = await prisma.order.findMany({
+    include: { items: true },
+    orderBy: { createdAt: "desc" },
+  });
+  return orders;
+};
+
+export const updateOrderStatus = async (orderId: string, newStatus: string) => {
+  return await prisma.order.update({
+    where: { id: orderId },
+    data: { status: newStatus },
+  });
+};
