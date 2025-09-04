@@ -16,4 +16,27 @@ model Product {
   category    Json
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  items OrderItem[]
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  status    String   @default("new")
+
+  items OrderItem[]
+}
+
+model OrderItem {
+  id       String @id @default(cuid())
+  quantity Int
+  title    String
+  price    Int
+
+  order   Order  @relation(fields: [orderId], references: [id])
+  orderId String
+
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
 }
