@@ -4,3 +4,4 @@
   "trailingComma": "all",
   "plugins": ["prettier-plugin-prisma"]
 }
+

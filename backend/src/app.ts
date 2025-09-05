@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import menuRoutes from "./api/menu/menu.routes";
+import orderRoutes from "./api/orders/orders.routes";
 
 const app = express();
 
@@ -12,5 +13,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/menu", menuRoutes);
+app.use("/api/orders", orderRoutes);
 
 export default app;
