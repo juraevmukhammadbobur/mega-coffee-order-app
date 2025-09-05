@@ -18,11 +18,12 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }: PaymentPopapProps) {
     }
   }, [cart, toggleModal]);
 
-  let randomId = String(Math.floor(Math.random() * 900 + 100));
 
   const handleClick = () => {
+    const otemsToOrder = cart.map(({ id, title, price, quantity }) => ({ id, title, price, quantity }));
+    console.log(otemsToOrder);
     axios
-      .post(`${host}/orders`, { items: cart, id: randomId })
+      .post(`${host}/orders`, otemsToOrder )
       .then(() => {
         toggleModal();
         cart.forEach((item) => {
@@ -34,7 +35,7 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }: PaymentPopapProps) {
       .catch((error) => console.log(error));
   };
 
-  // console.log(cart);
+  console.log(cart);
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
