@@ -22,6 +22,7 @@ model Product {
 
 model Order {
   id        String   @id @default(cuid())
+  shortId   Int      @unique
   createdAt DateTime @default(now())
   status    String   @default("new")
 

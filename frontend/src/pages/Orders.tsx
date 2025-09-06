@@ -68,13 +68,7 @@ const Orders = () => {
                       </p>
                       <p className="text-lg font-bold">수량: {item.quantity}</p>
                     </div>
-                    <div className="flex justify-end">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        style={{ width: '100px', height: '100px' }}
-                      />
-                    </div>
+
                   </div>
                 ))}
               </div>

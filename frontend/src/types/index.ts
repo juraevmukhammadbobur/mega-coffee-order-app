@@ -18,14 +18,15 @@ export interface CartItem extends Product {
 
 
 export interface OrderItem {
-    id: number;
+    id: string;
     title: string;
     quantity: number;
     price: number;
-    image: string;
+    imgage: string;
 }
 
 export interface Order {
+    shortId: number;
     id: number;
     status: string;
     createdAt: string;

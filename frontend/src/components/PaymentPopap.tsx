@@ -23,7 +23,7 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }: PaymentPopapProps) {
     const otemsToOrder = cart.map(({ id, title, price, quantity }) => ({ id, title, price, quantity }));
     console.log(otemsToOrder);
     axios
-      .post(`${host}/orders`, otemsToOrder)
+      .post(`${host}/orders`, { items: otemsToOrder })
       .then(() => {
         toggleModal();
         cart.forEach((item) => {

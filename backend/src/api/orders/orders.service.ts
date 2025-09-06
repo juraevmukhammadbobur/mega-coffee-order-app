@@ -10,9 +10,11 @@ interface CartItem {
 
 export const createNewOrder = async (items: CartItem[]) => {
   const newOrder = await prisma.$transaction(async (tx) => {
+    const randomShortId = Math.floor(100 + Math.random() * 900);
     const order = await tx.order.create({
       data: {
         status: "new",
+        shortId: randomShortId
       },
     });
 
@@ -23,7 +25,6 @@ export const createNewOrder = async (items: CartItem[]) => {
         title: item.title,
         price: item.price,
         quantity: item.quantity,
-        image: item.image,
       };
     });
 

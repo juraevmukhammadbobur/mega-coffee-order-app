@@ -13,11 +13,11 @@ function AdminPage() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const respone = await axios.get(`${API_URL}/orders`)
-        setOrders(respone.data)
+        const response = await axios.get(`${API_URL}/orders`)
+        setOrders(response.data)
       } catch (error) {
         setError("Failed to fetch orders...")
-        console.error(error);
+        console.log(error);
       } finally {
         setLoading(false)
       }
@@ -37,7 +37,7 @@ function AdminPage() {
         {orders.map((order) => (
           <div key={order.id} className="bg-white rounded-lg shadow-md p-6">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-bold">Order # {order.id}</h2>
+              <h2 className="text-lg font-bold">Order # {order.shortId}</h2>
               <span
                 className={`px-3 py-1 text-sm font-semibold rounded-full ${order.status === 'new' ? 'bg-amber-100 text-amber-300' : 'bg-green-200 text-green-800'
                   }`}
