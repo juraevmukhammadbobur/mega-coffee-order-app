@@ -30,6 +30,21 @@ function AdminPage() {
   }, [])
   console.log(orders);
 
+  const handleCompleteOrder = async (orderId: number) => {
+    try {
+      await axios.patch(`${API_URL}/orders/${orderId}`, { status: "complated" })
+      setOrders((prevOrders) =>
+        prevOrders.map((order) =>
+          order.id === orderId
+            ? { ...order, status: 'completed' }
+            : order
+        )
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="p-10">
       <h1 className="text-3xl font-bold mb-8">Orders:</h1>
@@ -58,6 +73,16 @@ function AdminPage() {
                 </li>
               ))}
             </ul>
+
+            {order.status === 'new' ?
+              <button
+                onClick={() => handleCompleteOrder(order.id)}
+                className="mt-4 w-full bg-amber-300 text-white font-bold py-2 px-4 rounded hover:bg-amber-400 disabled:bg-gray-400 disabled:cursor-not-allowed"
+              >done</button> : <button
+                disabled
+                className="mt-4 w-full bg-gray-400 text-white font-bold py-2 px-4 rounded cursor-not-allowed"
+              >done</button>
+            }
           </div>
         ))}
       </div>
