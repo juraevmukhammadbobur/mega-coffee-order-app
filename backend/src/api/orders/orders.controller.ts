@@ -5,7 +5,8 @@ import { stat } from "fs";
 
 export const createOrder = async (req: Request, res: Response) => {
   try {
-    const items = req.body;
+
+    const { items } = req.body;
 
     if (!Array.isArray(items) || items.length === 0) {
       return res

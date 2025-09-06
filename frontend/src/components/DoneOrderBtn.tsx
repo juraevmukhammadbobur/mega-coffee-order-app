@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 interface DoneOrderBtnProps {
-  orderId: string;
+  orderId: number;
 }
 
 const DoneOrderBtn = ({ orderId }: DoneOrderBtnProps) => {

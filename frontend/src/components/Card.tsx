@@ -1,5 +1,4 @@
-import type { Product } from '../pages/Home';
-
+import type { Product } from '../types/index.js';
 interface CardProps {
   products: Product[];
   addToCart: (product: Product) => void;

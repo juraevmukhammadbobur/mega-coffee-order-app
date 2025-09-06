@@ -3,24 +3,7 @@ import Cart from '../components/Cart';
 import Navbar from '../components/Navbar';
 import { useState } from 'react';
 import PaymentPopap from '../components/PaymentPopap';
-
-export interface ProductCategory {
-  hot: boolean;
-  cold: boolean;
-}
-
-export interface Product {
-  id: string;
-  title: string;
-  price: number;
-  description: string;
-  category: ProductCategory;
-  image: string;
-}
-
-export interface CartItem extends Product {
-  quantity: number;
-}
+import type { Product, CartItem } from '../types';
 
 function Home() {
   const [cart, setCart] = useState<CartItem[]>([]);
