@@ -1,6 +1,6 @@
 import React from 'react';
 import OrederButton from './OrederButton.js';
-import type { CartItem } from '../pages/Home.js';
+import type { CartItem } from '../types/index.js';
 
 interface CartProps {
   cart: CartItem[];

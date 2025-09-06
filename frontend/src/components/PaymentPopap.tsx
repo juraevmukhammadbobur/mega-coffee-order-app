@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { CartItem } from '../pages/Home';
+import type { CartItem } from '../types/index.js';
 
 interface PaymentPopapProps {
   cart: CartItem[];
@@ -23,14 +23,13 @@ function PaymentPopap({ cart, toggleModal, deleteOnCart }: PaymentPopapProps) {
     const otemsToOrder = cart.map(({ id, title, price, quantity }) => ({ id, title, price, quantity }));
     console.log(otemsToOrder);
     axios
-      .post(`${host}/orders`, otemsToOrder )
+      .post(`${host}/orders`, otemsToOrder)
       .then(() => {
         toggleModal();
         cart.forEach((item) => {
           deleteOnCart(item.id);
         });
         navigate('/');
-        console.log('edfe');
       })
       .catch((error) => console.log(error));
   };

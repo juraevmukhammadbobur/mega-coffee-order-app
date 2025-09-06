@@ -1,5 +1,5 @@
 import PaymentPopap from './PaymentPopap.js';
-import type { CartItem } from '../pages/Home';
+import type { CartItem } from '../types/index.js';
 
 interface OrederButtonProps {
   cart: CartItem[];

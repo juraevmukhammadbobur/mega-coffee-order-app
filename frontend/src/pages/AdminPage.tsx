@@ -1,130 +1,68 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar.js';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { data } from 'react-router-dom';
+import type { Order } from '../types';
 
-interface AdminInfo {
-  username: string;
-  password: string;
-}
+function AdminPage() {
+  const [orders, setOrders] = useState<Order[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-interface AdminResponse {
-  id: string;
-  username: string;
-  password: string;
-}
+  const API_URL = import.meta.env.VITE_HOST;
 
-const AdminPage = () => {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
-  const [adminInfo, setAdminInfo] = useState<AdminInfo>({
-    username: '',
-    password: '',
-  });
-  const navigate = useNavigate();
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setAdminInfo((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const hanldeSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-
-    try {
-      const response = await fetch(
-        'https://json-server-data-udg3.onrender.com/admin',
-      );
-      const admins: AdminResponse[] = await response.json();
-      const admin = admins.find(
-        (admin) =>
-          admin.username === adminInfo.username &&
-          admin.password === adminInfo.password,
-      );
-
-      if (admin) {
-        localStorage.setItem(
-          'adminToken',
-          JSON.stringify({
-            id: admin.id,
-            username: admin.username,
-            isLoggedIn: true,
-          }),
-        );
-
-        navigate('/admin/orders');
-      } else {
-        setError('Invalid username or password');
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const respone = await axios.get(`${API_URL}/orders`)
+        setOrders(respone.data)
+      } catch (error) {
+        setError("Failed to fetch orders...")
+        console.error(error);
+      } finally {
+        setLoading(false)
       }
-    } catch (err) {
-      setError('Connection error. Please try again.');
-      console.error(err);
-    } finally {
-      setLoading(false);
     }
-  };
 
-  const menuBtn = () => {
-    navigate('/');
-  };
+    fetchOrders()
+
+    const intervalId = setInterval(fetchOrders, 15000);
+    return () => clearInterval(intervalId);
+  }, [])
+  console.log(orders);
+
   return (
-    <div className="flex justify-center h-screen bg-gray-100">
-      <div className="flex flex-col justify-center gap-8 items-center">
-        {error && (
-          <div className="p-4 text-sm text-red-700 w-full text-center bg-red-100 rounded-md">
-            {error}
-          </div>
-        )}
-        <form
-          onSubmit={hanldeSubmit}
-          className="bg-white w-96 h-[70%] rounded-md flex flex-col"
-        >
-          <h1 className="text-center font-bold rounded-md text-2xl bg-amber-300 py-8 w-full">
-            메가 커피 Admin
-          </h1>
-          <div className="p-6 flex flex-col gap-5 text-lg mt-10">
-            <label htmlFor="username" className="flex">
-              ID
-            </label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              value={adminInfo.username}
-              onChange={handleChange}
-              className="border-b-1 border-amber-300 w-full focus:outline-none"
-            />
-            <label htmlFor="password" className="flex">
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={adminInfo.password}
-              onChange={handleChange}
-              className="border-b-1 border-amber-300 w-full focus:outline-none"
-            />
-            <div className="flex justify-around">
-              <button
-                className="mt-12 border-1 rounded-lg px-6 py-2 border-amber-300 cursor-pointer"
-                onClick={menuBtn}
+    <div className="p-10">
+      <h1 className="text-3xl font-bold mb-8">Orders:</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {orders.map((order) => (
+          <div key={order.id} className="bg-white rounded-lg shadow-md p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-bold">Order # {order.id}</h2>
+              <span
+                className={`px-3 py-1 text-sm font-semibold rounded-full ${order.status === 'new' ? 'bg-amber-100 text-amber-300' : 'bg-green-200 text-green-800'
+                  }`}
               >
-                Menu
-              </button>
-              <button className="mt-12 rounded-lg px-6 py-2 bg-amber-300 cursor-pointer hover:bg-amber-400 transition-all ">
-                Login
-              </button>
+                {order.status}
+              </span>
             </div>
+            <p className="text-sm text-gray-500 mb-4">
+              {new Date(order.createdAt).toLocaleString()}
+            </p>
+            <hr />
+            <h3 className="font-semibold mt-4 mb-2">Order items:</h3>
+            <ul>
+              {order.items.map((item) => (
+                <li key={item.id} className="flex justify-between text-gray-700">
+                  <span>{item.title}</span>
+                  <span>x {item.quantity}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </form>
+        ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AdminPage;
+export default AdminPage

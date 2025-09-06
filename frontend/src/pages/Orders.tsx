@@ -4,12 +4,8 @@ import DoneOrderBtn from '../components/DoneOrderBtn.js';
 // import NotificationAudio from "../images/order.mp3";
 import Navbar from '../components/Navbar.js';
 import Loading from '../components/Loading.js';
-import type { CartItem } from './Home.js';
+import type { Order } from '../types/index.js';
 
-export interface Order {
-  id: string;
-  items: CartItem[];
-}
 
 const Orders = () => {
   const host = import.meta.env.VITE_HOST;

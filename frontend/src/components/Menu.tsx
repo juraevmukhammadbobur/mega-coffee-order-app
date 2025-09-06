@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Card from './Card.js';
 import axios from 'axios';
 import Loading from './Loading.js';
-import type { Product } from '../pages/Home';
+import type { Product } from '../types/index.js';
 
 type MenuProps = {
   addToCart: (product: Product) => void;
