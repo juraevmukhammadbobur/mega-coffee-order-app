@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import prisma from "../../utils/prisma";
 
 interface CartItem {
@@ -9,7 +10,7 @@ interface CartItem {
 }
 
 export const createNewOrder = async (items: CartItem[]) => {
-  const newOrder = await prisma.$transaction(async (tx) => {
+  const newOrder = await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
     const randomShortId = Math.floor(100 + Math.random() * 900);
     const order = await tx.order.create({
       data: {
