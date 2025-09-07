@@ -26,6 +26,7 @@ export const createNewOrder = async (items: CartItem[]) => {
         title: item.title,
         price: item.price,
         quantity: item.quantity,
+        image: item.image,
       };
     });
 
