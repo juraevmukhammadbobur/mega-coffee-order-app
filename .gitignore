@@ -11,6 +11,9 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.prettierrc
+.prettierignore
 
 
 # Editor directories and files
